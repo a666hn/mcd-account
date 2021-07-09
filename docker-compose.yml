@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  auth_db:
+    image: postgres:12.2
+    restart: always
+    environment:
+      - POSTGRES_DB=${AUTH_DB_NAME}
+      - POSTGRES_USER=${AUTH_DB_USER}
+      - POSTGRES_PASSWORD=${AUTH_DB_PASSWORD}
+    ports:
+      - '${AUTH_DB_PORT}:5432'
+
+  product_db:
+    image: postgres:12.2
+    restart: always
+    environment:
+      - POSTGRES_DB=${PRODUCT_DB_NAME}
+      - POSTGRES_USER=${PRODUCT_DB_USER}
+      - POSTGRES_PASSWORD=${PRODUCT_DB_PASSWORD}
+    ports:
+      - '${PRODUCT_DB_PORT}:5432'
+    
+  redis:
+    image: redis:alpine
+    ports:
+      - '${REDIS_PORT}:6379'
