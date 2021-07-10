@@ -8,9 +8,10 @@ import {
 } from 'typeorm';
 import { UUIDEntity } from '../../shared/uuid.entity';
 import * as bcrypt from 'bcrypt';
+import { BASIC_AUTH_CREDENTIALS_ENTITY } from 'src/dictionaries/entities.dictionary';
 
-@Entity('basicauth_credentials')
-export class BasicAuthCredentialEntity extends UUIDEntity {
+@Entity(BASIC_AUTH_CREDENTIALS_ENTITY)
+export class BasicAuthCredentialsEntity extends UUIDEntity {
     @Column({
         name: 'username',
         nullable: false,
