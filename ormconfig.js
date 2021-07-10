@@ -43,6 +43,7 @@ module.exports = [
         ],
         migrationsTableName: 'migrations_typeorm',
         migrationsRun: true,
+        seeds: [process.cwd(), 'dist', 'seeders', 'auth-db', '*{.ts,.js}'],
     },
     {
         type: 'postgres',
@@ -74,5 +75,6 @@ module.exports = [
         ],
         migrationsTableName: 'migrations_typeorm',
         migrationsRun: true,
+        seeds: [process.cwd(), 'dist', 'seeders', 'product-db', '*{.ts,.js}'],
     },
 ];
