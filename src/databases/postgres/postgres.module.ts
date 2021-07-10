@@ -20,8 +20,10 @@ import {
                 username: env.get('AUTH_DB_USER'),
                 password: env.get('AUTH_DB_PASSWORD'),
                 database: env.get('AUTH_DB_NAME'),
-                synchronize: true,
-                autoLoadEntities: true,
+                synchronize:
+                    env.get('NODE_ENV') === 'development' ? true : false,
+                autoLoadEntities:
+                    env.get('NODE_ENV') === 'development' ? true : false,
                 uuidExtension: 'uuid-ossp',
                 entities: [
                     join(
